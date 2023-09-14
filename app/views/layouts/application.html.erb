@@ -10,7 +10,26 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
+    <header>
+      <% if user_signed_in? %> <!--deviseにて用意されているヘルパーメソッド。deviseの機能を使ってログインしてるか否かを判断している。-->
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!--link_toのHTTPメソッドの初期値はgetの為オプションでdeleteを指定-->
+        </li>
+
+      <% else %>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+
+      <% end %>
+    </header>
+
     <%= yield %>
+
   </body>
 </html>
