@@ -15,6 +15,10 @@
     <header>
       <% if user_signed_in? %> <!--deviseにて用意されているヘルパーメソッド。deviseの機能を使ってログインしてるか否かを判断している。-->
         <li>
+          <%= link_to "投稿フォーム", new_post_image_path %>
+        </li>
+
+        <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!--link_toのHTTPメソッドの初期値はgetの為オプションでdeleteを指定-->
         </li>
 
