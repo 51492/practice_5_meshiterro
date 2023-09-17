@@ -6,13 +6,13 @@
     <!--image_tagを使いpost_imageにActiveStorageで設定したimageを表示-->
     <!--post_image.get_imageの部分はPostImageモデル内に記述したメソッドを呼び出している-->
     <% end %>
-    
+
     <p>投稿ユーザー画像：<%=image_tag post_image.user.get_profile_image(100, 100) %></p>
 
     <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
     <p>ショップ名：<%= post_image.shop_name %></p>  <!--post_image変数のshop_nameカラムを表示-->
     <p>説明：<%= post_image.caption %></p>  <!--post_image変数のcaptionカラムを表示-->
     <p>ユーザーネーム：<%= post_image.user.name %></p>  <!--post_image変数のuser_idに関連付けられているuserモデルのnameカラムを表示(アソシエーションで関連付けを行っているため引っ張れる)-->
-
+    <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
   </div>
 <% end %>
