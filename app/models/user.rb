@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   # dependent: :destroyはhas_manyで使えるオプション。1:Nの関係で1側のデータが削除されたら関連するNのデータもすべて削除される設定
 
   has_one_attached :profile_image
